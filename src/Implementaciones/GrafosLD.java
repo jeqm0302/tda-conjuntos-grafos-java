@@ -104,13 +104,14 @@ public class GrafosLD implements GrafosTDA{
 	private void eliminarAristaEnVertice(NodoVertice vertice, int destino) {
 		NodoArista turista = vertice.aristas;
 		if (turista != null) {
-			if(turista.destino.vertice == destino)
+			if (turista.destino.vertice == destino) {
 				vertice.aristas = turista.sigArista;
-		} else {
-			while(turista.sigArista != null && turista.sigArista.destino.vertice != destino)
-				turista = turista.sigArista;
-			if(turista.sigArista != null)
-				turista.sigArista = turista.sigArista.sigArista;
+			} else {
+				while (turista.sigArista != null && turista.sigArista.destino.vertice != destino)
+					turista = turista.sigArista;
+				if (turista.sigArista != null)
+					turista.sigArista = turista.sigArista.sigArista;
+			}
 		}
 	}
 }
